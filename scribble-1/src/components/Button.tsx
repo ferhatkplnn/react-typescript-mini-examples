@@ -4,7 +4,6 @@ import React, {
   ComponentPropsWithRef,
   useRef,
   useState,
-  useState,
 } from "react";
 
 // type ButtonProps = {
@@ -30,6 +29,19 @@ type User = {
   salary: number;
 };
 
+const buttonTextOptions = [
+  "Click me!",
+  "Click me again!",
+  "Click me on more time!",
+] as const; // artik buttonTextOptions sadece readonly oldu
+
+type Auth = {
+  sessionId: string;
+  name: string;
+};
+
+type Guest = Omit<Auth, "name">; // name degerini cikardi
+
 const Button = ({ style, onClick, children }: ButtonProps) => {
   const [names, setName] = useState<string[]>(["ali", "osman"]);
   const [users, setUsers] = useState<User[] | null>(null);
@@ -46,9 +58,14 @@ const Button = ({ style, onClick, children }: ButtonProps) => {
   };
 
   return (
-    <button onClick={handleClick} style={style}>
-      {children}
-    </button>
+    <>
+      <button onClick={handleClick} style={style}>
+        {children}
+      </button>
+      {buttonTextOptions.map((opt) => {
+        return <button key={opt}>{opt}</button>;
+      })}
+    </>
   );
 };
 

@@ -37,7 +37,7 @@ const App = () => {
         }}
         type="submit"
         autoFocus={true}
-        ref={buttonRef}
+        // ref={buttonRef}
       >
         Click Me
       </Button>
