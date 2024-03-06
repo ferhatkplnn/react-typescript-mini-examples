@@ -1,4 +1,4 @@
-import React, { ComponentProps } from "react";
+import React, { Component, ComponentProps, ComponentPropsWithRef } from "react";
 
 // type ButtonProps = {
 //   style: React.CSSProperties;
@@ -11,7 +11,8 @@ import React, { ComponentProps } from "react";
 //   autoFocus: boolean;
 // };
 
-type ButtonProps = ComponentProps<"button">;
+// type ButtonProps = ComponentProps<"button">;
+type ButtonProps = ComponentPropsWithRef<"button">; // if use ref
 
 const Button = ({ style, onClick, children }: ButtonProps) => {
   return (

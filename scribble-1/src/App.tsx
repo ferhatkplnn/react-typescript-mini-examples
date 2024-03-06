@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Button from "./components/Button";
 
 const App = () => {
   const [count, setCount] = useState(0);
+  const buttonRef = useRef(null);
 
   const url: string = "https://api.github.com/users";
 
@@ -36,6 +37,7 @@ const App = () => {
         }}
         type="submit"
         autoFocus={true}
+        ref={buttonRef}
       >
         Click Me
       </Button>
