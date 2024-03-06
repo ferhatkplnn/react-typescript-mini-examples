@@ -18,6 +18,8 @@ import React, {
 //   autoFocus: boolean;
 // };
 
+import { type ThemeColor } from "../lib/types";
+
 // type ButtonProps = ComponentProps<"button">;
 type ButtonProps = ComponentPropsWithRef<"button"> & {
   setCount: React.Dispatch<React.SetStateAction<number>>;
@@ -44,6 +46,19 @@ type Auth = {
 type Guest = Omit<Auth, "name">; // name degerini cikardi
 
 type ButtonColor = "red" | "blue" | "green";
+
+const convertToArray = <T,>(value: T): T[] => {
+  return [value];
+};
+
+type FooType<T> = {
+  countValue: T;
+  countHistory: T[];
+};
+
+const foo = <T,>({ countValue, countHistory }): FooType<T> => {
+  return { countValue, countHistory };
+};
 
 const Button = ({ style, onClick, children }: ButtonProps) => {
   const [names, setName] = useState<string[]>(["ali", "osman"]);
