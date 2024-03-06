@@ -11,17 +11,17 @@ const App = () => {
   }
 
   const handleClick = <T,>(val: T): T => {
-    setCount(count + 1);
     return val;
   };
 
   return (
     <div>
-      <h1>app</h1>
+      <h1>App</h1>
       <p>url: {url}</p>
       <p>{convertCurrency(22, "$")}</p>
       <p>count: {count}</p>
       <Button
+        setCount={setCount}
         onClick={handleClick}
         style={{
           background: "purple",
