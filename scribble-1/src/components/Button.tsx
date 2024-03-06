@@ -6,6 +6,7 @@ type ButtonProps = {
   onClick: <T>(val: T) => T;
   children: React.ReactNode; // Allowed all value
   // children: JSX.Element;  // Only allowed one element
+  setCount: React.Dispatch<React.SetStateAction<number>>;
 };
 
 const Button = ({ style, onClick, children }: ButtonProps) => {
