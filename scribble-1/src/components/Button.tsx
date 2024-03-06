@@ -13,8 +13,11 @@ import React, { Component, ComponentProps, ComponentPropsWithRef } from "react";
 
 // type ButtonProps = ComponentProps<"button">;
 type ButtonProps = ComponentPropsWithRef<"button">; // if use ref
+type ExtendedButtonProps = ButtonProps & {
+  setCount: React.Dispatch<React.SetStateAction<number>>;
+};
 
-const Button = ({ style, onClick, children }: ButtonProps) => {
+const Button = ({ style, onClick, children }: ExtendedButtonProps) => {
   return (
     <button onClick={onClick} style={style}>
       {children}
