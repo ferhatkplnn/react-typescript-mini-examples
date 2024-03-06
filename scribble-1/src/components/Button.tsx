@@ -18,8 +18,15 @@ type ButtonProps = ComponentPropsWithRef<"button"> & {
 }; // if use ref
 
 const Button = ({ style, onClick, children }: ButtonProps) => {
+  const handleClick = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    event.preventDefault();
+    console.log("Clicked!");
+  };
+
   return (
-    <button onClick={onClick} style={style}>
+    <button onClick={handleClick} style={style}>
       {children}
     </button>
   );
