@@ -1,6 +1,9 @@
+import { useState } from "react";
 import Button from "./components/Button";
 
 const App = () => {
+  const [count, setCount] = useState(0);
+
   const url: string = "https://api.github.com/users";
 
   function convertCurrency(amount: number, currency: string) {
@@ -8,6 +11,7 @@ const App = () => {
   }
 
   const handleClick = <T,>(val: T): T => {
+    setCount(count + 1);
     return val;
   };
 
@@ -16,6 +20,7 @@ const App = () => {
       <h1>app</h1>
       <p>url: {url}</p>
       <p>{convertCurrency(22, "$")}</p>
+      <p>count: {count}</p>
       <Button
         onClick={handleClick}
         style={{
@@ -29,7 +34,9 @@ const App = () => {
           bottomRight: 10,
           bottomLeft: 10,
         }}
-      />
+      >
+        Click Me
+      </Button>
     </div>
   );
 };
