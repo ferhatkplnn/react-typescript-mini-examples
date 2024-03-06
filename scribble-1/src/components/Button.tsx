@@ -2,6 +2,7 @@ import React, {
   Component,
   ComponentProps,
   ComponentPropsWithRef,
+  useRef,
   useState,
   useState,
 } from "react";
@@ -32,6 +33,10 @@ type User = {
 const Button = ({ style, onClick, children }: ButtonProps) => {
   const [names, setName] = useState<string[]>(["ali", "osman"]);
   const [users, setUsers] = useState<User[] | null>(null);
+
+  // const ref = useRef<Element | null>(null);
+  // const ref = useRef<HTMLElement | null>(null);
+  const ref = useRef<HTMLButtonElement | null>(null);
 
   const handleClick = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
