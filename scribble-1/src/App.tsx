@@ -34,6 +34,8 @@ const App = () => {
           bottomRight: 10,
           bottomLeft: 10,
         }}
+        type="submit"
+        autoFocus={true}
       >
         Click Me
       </Button>
