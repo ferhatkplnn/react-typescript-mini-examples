@@ -2,6 +2,7 @@ import React, {
   Component,
   ComponentProps,
   ComponentPropsWithRef,
+  useEffect,
   useRef,
   useState,
 } from "react";
@@ -42,6 +43,8 @@ type Auth = {
 
 type Guest = Omit<Auth, "name">; // name degerini cikardi
 
+type ButtonColor = "red" | "blue" | "green";
+
 const Button = ({ style, onClick, children }: ButtonProps) => {
   const [names, setName] = useState<string[]>(["ali", "osman"]);
   const [users, setUsers] = useState<User[] | null>(null);
@@ -49,6 +52,12 @@ const Button = ({ style, onClick, children }: ButtonProps) => {
   // const ref = useRef<Element | null>(null);
   // const ref = useRef<HTMLElement | null>(null);
   const ref = useRef<HTMLButtonElement | null>(null);
+
+  useEffect(() => {
+    const previousButtonColor = localStorage.getItem(
+      "buttonColor"
+    ) as ButtonColor;
+  }, []);
 
   const handleClick = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
