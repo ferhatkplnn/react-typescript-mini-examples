@@ -1,4 +1,10 @@
-import React, { Component, ComponentProps, ComponentPropsWithRef } from "react";
+import React, {
+  Component,
+  ComponentProps,
+  ComponentPropsWithRef,
+  useState,
+  useState,
+} from "react";
 
 // type ButtonProps = {
 //   style: React.CSSProperties;
@@ -17,7 +23,16 @@ type ButtonProps = ComponentPropsWithRef<"button"> & {
   borderRadius: Record<string, number>;
 }; // if use ref
 
+type User = {
+  name: string;
+  email: string;
+  salary: number;
+};
+
 const Button = ({ style, onClick, children }: ButtonProps) => {
+  const [names, setName] = useState<string[]>(["ali", "osman"]);
+  const [users, setUsers] = useState<User[] | null>(null);
+
   const handleClick = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
