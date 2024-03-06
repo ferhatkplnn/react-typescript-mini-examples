@@ -30,7 +30,7 @@ const App = () => {
           padding: "8px 24px",
         }}
         borderRadius={{
-          topLeft: 5,
+          topLeft: 8,
           topRight: 5,
           bottomRight: 10,
           bottomLeft: 10,

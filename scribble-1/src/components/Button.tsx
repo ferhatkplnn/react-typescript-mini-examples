@@ -12,12 +12,12 @@ import React, { Component, ComponentProps, ComponentPropsWithRef } from "react";
 // };
 
 // type ButtonProps = ComponentProps<"button">;
-type ButtonProps = ComponentPropsWithRef<"button">; // if use ref
-type ExtendedButtonProps = ButtonProps & {
+type ButtonProps = ComponentPropsWithRef<"button"> & {
   setCount: React.Dispatch<React.SetStateAction<number>>;
-};
+  borderRadius: Record<string, number>;
+}; // if use ref
 
-const Button = ({ style, onClick, children }: ExtendedButtonProps) => {
+const Button = ({ style, onClick, children }: ButtonProps) => {
   return (
     <button onClick={onClick} style={style}>
       {children}
