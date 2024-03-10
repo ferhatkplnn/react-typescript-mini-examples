@@ -6,7 +6,7 @@ import { FC, PropsWithChildren } from "react";
 //   id: number;
 // };
 
-type CourseGoalProps = PropsWithChildren<{ title: string; id: number }>;
+type CourseGoalProps = PropsWithChildren<{ title: string; id: string }>;
 
 // const CourseGoal = ({ title, children }: CourseGoalProps) => {
 //   return (
@@ -22,7 +22,7 @@ type CourseGoalProps = PropsWithChildren<{ title: string; id: number }>;
 
 // export default CourseGoal;
 
-const CourseGoal: FC<CourseGoalProps> = ({ title, children }) => {
+const CourseGoal: FC<CourseGoalProps> = ({ title, id, children }) => {
   return (
     <article className="card">
       <div className="card__content">
