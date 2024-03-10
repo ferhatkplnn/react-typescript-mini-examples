@@ -42,7 +42,13 @@ main {
 }
 
 .goals {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(calc(50% - 8px), 1fr));
+  // display: grid;
+  // grid-template-columns: repeat(auto-fit, minmax(calc(50% - 8px), 1fr));
   gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
+
+  & > :last-child {
+    grid-column: span 2;
+  }
 }
