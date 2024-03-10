@@ -4,16 +4,17 @@ import Header from "./components/Header";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import { Goal } from "./types";
 import { nanoid } from "nanoid";
+import NewGoal from "./components/NewGoal";
 
 const App = () => {
   const [goals, setGoals] = useLocalStorage<Goal[]>("goals", []);
 
-  const handleAddGoal = () => {
+  const handleAddGoal = (data: { title: string; description: string }) => {
     setGoals((prev) => {
       const newGoal: Goal = {
         id: nanoid(),
-        title: "Learn React + Ts",
-        descrtiption: "Learn it in depth!",
+        title: data.title,
+        descrtiption: data.description,
       };
 
       return [...prev, newGoal];
@@ -32,7 +33,7 @@ const App = () => {
       <Header image={{ src: goalImg, alt: "A list of goals" }}>
         <h1>Your Course Goals</h1>
       </Header>
-      <button onClick={handleAddGoal}>Add Goal</button>
+      <NewGoal handleAddGoal={handleAddGoal} />
 
       <CouserGoalList goals={goals} handleDeleteGoal={handleDeleteGoal} />
     </main>
