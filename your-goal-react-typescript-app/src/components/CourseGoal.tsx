@@ -1,3 +1,5 @@
+import "./styles/courseGoal.scss";
+
 const CourseGoal = () => {
   return (
     <article>
