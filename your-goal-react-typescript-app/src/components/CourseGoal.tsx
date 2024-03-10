@@ -1,13 +1,11 @@
-import "./styles/courseGoal.scss";
-
 const CourseGoal = () => {
   return (
-    <article>
-      <div>
-        <h2>Title</h2>
-        <p>Description</p>
+    <article className="card">
+      <div className="card__content">
+        <h2 className="card__content__title">Title</h2>
+        <p className="card__content__description">Description</p>
       </div>
-      <button>Delete</button>
+      <button className="card__button">Delete</button>
     </article>
   );
 };
