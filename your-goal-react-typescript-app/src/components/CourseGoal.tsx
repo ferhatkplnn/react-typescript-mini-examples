@@ -6,7 +6,11 @@ import { FC, PropsWithChildren } from "react";
 //   id: number;
 // };
 
-type CourseGoalProps = PropsWithChildren<{ title: string; id: string }>;
+type CourseGoalProps = PropsWithChildren<{
+  title: string;
+  id: string;
+  handleDeleteGoal: (id: string) => void;
+}>;
 
 // const CourseGoal = ({ title, children }: CourseGoalProps) => {
 //   return (
@@ -22,14 +26,21 @@ type CourseGoalProps = PropsWithChildren<{ title: string; id: string }>;
 
 // export default CourseGoal;
 
-const CourseGoal: FC<CourseGoalProps> = ({ title, id, children }) => {
+const CourseGoal: FC<CourseGoalProps> = ({
+  title,
+  id,
+  children,
+  handleDeleteGoal,
+}) => {
   return (
     <article className="card">
       <div className="card__content">
         <h2 className="card__content__title">{title}</h2>
         <p className="card__content__description">{children}</p>
       </div>
-      <button className="card__button">Delete</button>
+      <button onClick={() => handleDeleteGoal(id)} className="card__button">
+        Delete
+      </button>
     </article>
   );
 };

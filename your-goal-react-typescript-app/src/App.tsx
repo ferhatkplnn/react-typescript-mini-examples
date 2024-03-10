@@ -1,4 +1,4 @@
-import CourseGoal from "./components/CourseGoal";
+import CouserGoalList from "./components/CouserGoalList";
 import goalImg from "./assets/images/goal.png";
 import Header from "./components/Header";
 import { useLocalStorage } from "./hooks/useLocalStorage";
@@ -7,6 +7,7 @@ import { nanoid } from "nanoid";
 
 const App = () => {
   const [goals, setGoals] = useLocalStorage<Goal[]>("goals", []);
+
   const handleAddGoal = () => {
     setGoals((prev) => {
       const newGoal: Goal = {
@@ -19,6 +20,13 @@ const App = () => {
     });
   };
 
+  const handleDeleteGoal = (id: string) => {
+    setGoals((prev) => {
+      const filteredGoal = prev.filter((goal) => goal.id !== id);
+      return filteredGoal;
+    });
+  };
+
   return (
     <main>
       <Header image={{ src: goalImg, alt: "A list of goals" }}>
@@ -26,13 +34,7 @@ const App = () => {
       </Header>
       <button onClick={handleAddGoal}>Add Goal</button>
 
-      <div className="goals">
-        {goals.map((goal) => (
-          <CourseGoal title={goal.title} id={goal.id} key={goal.id}>
-            {goal.descrtiption}
-          </CourseGoal>
-        ))}
-      </div>
+      <CouserGoalList goals={goals} handleDeleteGoal={handleDeleteGoal} />
     </main>
   );
 };
