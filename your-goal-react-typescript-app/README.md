@@ -1,6 +1,6 @@
 # You goal react typescript app
 
-[DEMO](average-chess-vv.surge.sh)
+[DEMO](https://average-chess-vv.surge.sh/)
 
 ## Images
 
