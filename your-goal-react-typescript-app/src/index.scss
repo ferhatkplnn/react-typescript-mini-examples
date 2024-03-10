@@ -39,3 +39,9 @@ main {
   padding: 40px 32px;
   box-shadow: 8px 8px 16px hsla(0, 0%, 0%, 0.438);
 }
+
+.goals {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}

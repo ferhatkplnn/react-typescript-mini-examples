@@ -26,11 +26,13 @@ const App = () => {
       </Header>
       <button onClick={handleAddGoal}>Add Goal</button>
 
-      {goals.map((goal) => (
-        <CourseGoal title={goal.title} id={goal.id} key={goal.id}>
-          {goal.descrtiption}
-        </CourseGoal>
-      ))}
+      <div className="goals">
+        {goals.map((goal) => (
+          <CourseGoal title={goal.title} id={goal.id} key={goal.id}>
+            {goal.descrtiption}
+          </CourseGoal>
+        ))}
+      </div>
     </main>
   );
 };
