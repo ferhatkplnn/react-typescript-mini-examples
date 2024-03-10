@@ -1,5 +1,6 @@
 import { Goal } from "../types";
 import CourseGoal from "./CourseGoal";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 type CourseGoalList = {
   goals: Goal[];
@@ -7,8 +8,10 @@ type CourseGoalList = {
 };
 
 const CouserGoalList = ({ goals, handleDeleteGoal }: CourseGoalList) => {
+  const [parent] = useAutoAnimate();
+
   return (
-    <div className="goals">
+    <div ref={parent} className="goals">
       {goals.map((goal) => (
         <CourseGoal
           handleDeleteGoal={handleDeleteGoal}
