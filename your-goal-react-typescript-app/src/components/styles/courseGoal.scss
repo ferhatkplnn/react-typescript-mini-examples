@@ -1,12 +1,4 @@
 .card {
-  width: min(800px, 100vw - 20px);
-  background: hsl(0, 0%, 13%);
-  color: hsl(0, 0%, 85%);
-  border-radius: 4px;
-  margin-top: 32px;
-  padding: 40px 32px;
-  box-shadow: 8px 8px 16px hsla(0, 0%, 0%, 0.438);
-
   &__content {
     &__title,
     &__description {
