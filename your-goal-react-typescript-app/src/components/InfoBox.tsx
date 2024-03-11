@@ -8,7 +8,7 @@ type InfoBoxProps = {
 const InfoBox = ({ mode, children }: InfoBoxProps) => {
   if (mode === "hint") {
     return (
-      <aside className="infobox">
+      <aside className="infobox infobox-info">
         <p>{children}</p>
       </aside>
     );
