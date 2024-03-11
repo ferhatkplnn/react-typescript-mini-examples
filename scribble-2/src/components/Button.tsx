@@ -18,7 +18,7 @@ const Button = (props: TButtonProps | TAnchorProps) => {
   if (isAnchorProps(props)) {
     return <a {...props}></a>;
   }
-  return <button {...props}>Button</button>;
+  return <button {...props}>{props.children}</button>;
 };
 
 export default Button;
