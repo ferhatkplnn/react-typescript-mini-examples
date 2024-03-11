@@ -14,6 +14,7 @@ const Input = forwardRef<HTMLInputElement, TInputProps>(
         </label>
         <input
           id={id}
+          name={id}
           className="text-black text-lg px-4 py-2 rounded"
           {...props}
           ref={ref}
