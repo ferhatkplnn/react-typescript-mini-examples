@@ -1,0 +1,19 @@
+$info-color: rgb(0, 187, 255);
+$warning-color: rgb(255, 85, 85);
+
+.infobox {
+  border: 1px solid;
+  text-align: center;
+  padding: 24px;
+  margin-bottom: 4rem;
+
+  &-info {
+    border-color: $info-color;
+    color: $info-color;
+  }
+
+  &-warning {
+    border-color: $warning-color;
+    color: $warning-color;
+  }
+}
