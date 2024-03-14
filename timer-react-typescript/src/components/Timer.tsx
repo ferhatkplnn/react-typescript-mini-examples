@@ -17,19 +17,13 @@ const Timer = ({ name, duration }: TTimerProps) => {
     let timer: number;
     if (isRunning) {
       timer = setInterval(() => {
-        setRemaining((prevTime) => {
-          if (prevTime === 0) {
-            return prevTime;
-          }
-          return prevTime - 50;
-        });
+        setRemaining((prevTime) => Math.max(prevTime - 50, 0));
       }, 50);
 
       intervalRef.current = timer;
     }
 
     return () => {
-      console.log("hey");
       clearInterval(timer);
     };
   }, [isRunning]);
