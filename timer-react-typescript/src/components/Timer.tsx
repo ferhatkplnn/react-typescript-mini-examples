@@ -6,7 +6,7 @@ type TTimerProps = TTimer;
 const Timer = ({ name, duration }: TTimerProps) => {
   return (
     <Container as="article">
-      <h2>{name}</h2>
+      <h3>{name}</h3>
       <p>{duration}</p>
     </Container>
   );
