@@ -8,13 +8,15 @@ const Header = () => {
     <header>
       <h1>ReactTimer</h1>
 
-      <Button
-        onClick={
-          timersCtx.isRunning ? timersCtx.startTimers : timersCtx.startTimers
-        }
-      >
-        {timersCtx.isRunning ? "Stop" : "Start"} Timers
-      </Button>
+      <div>
+        <Button
+          onClick={
+            timersCtx.isRunning ? timersCtx.stopTimers : timersCtx.startTimers
+          }
+        >
+          {timersCtx.isRunning ? "Stop" : "Start"} Timers
+        </Button>
+      </div>
     </header>
   );
 };
