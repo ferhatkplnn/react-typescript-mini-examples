@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext } from "react";
+import { ReactNode, createContext, useContext, useReducer } from "react";
 
 type TTimer = {
   name: string;
@@ -8,6 +8,11 @@ type TTimer = {
 type TTimersState = {
   isRunning: boolean;
   timers: TTimer[];
+};
+
+const initialState: TTimersState = {
+  isRunning: true,
+  timers: [],
 };
 
 type TTimersContextValue = TTimersState & {
@@ -22,20 +27,28 @@ type TTimersContextProviderProps = {
   children: ReactNode;
 };
 
+type TAction = {
+  type: "ADD_TIMER" | "START_TIMERS" | "STOP_TIMERS";
+};
+
+function timersReducer(state: TTimersState, action: TAction): TTimersState {}
+
 export const TimersContextProvider = ({
   children,
 }: TTimersContextProviderProps) => {
+  const [timersState, dispatch] = useReducer(timersReducer, initialState);
+
   const ctx: TTimersContextValue = {
     timers: [],
     isRunning: false,
     addTimer(timerData) {
-      //
+      dispatch({ type: "ADD_TIMER" });
     },
     startTimers() {
-      //
+      dispatch({ type: "START_TIMERS" });
     },
     stopTimers() {
-      ///
+      dispatch({ type: "STOP_TIMERS" });
     },
   };
 
