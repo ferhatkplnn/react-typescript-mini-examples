@@ -12,3 +12,92 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+main {
+  margin-top: 128px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+main img {
+  border-radius: 100%;
+  width: 160px;
+  height: 160px;
+  box-shadow: 0 0 16px white;
+}
+main #blog-posts h1 {
+  margin-bottom: 8px;
+}
+main #blog-posts ul {
+  list-style: none;
+  width: 60vw;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+main li {
+  flex: 1 0 calc(50% - 24px);
+  background-color: hsl(0, 0%, 20%);
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+main li h2 {
+  font-size: medium;
+  margin-bottom: 8px;
+  text-transform: capitalize;
+}
+
+@media (max-width: 600px) {
+  main #blog-posts ul {
+    width: 80vw;
+  }
+  main li {
+    flex: 1 1 auto;
+  }
+}
+
+#error {
+  border: solid hsl(0, 100%, 70%) 1px;
+  width: 60vw;
+  text-align: center;
+  padding: 16px;
+  color: hsl(0, 100%, 70%);
+  margin-top: 16px;
+}
+
+@keyframes split {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#loading-fallback {
+  animation-name: split;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transform-origin: center;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+}
