@@ -71,7 +71,7 @@ export const TimersContextProvider = ({
 
   const ctx: TTimersContextValue = {
     timers: timersState.timers,
-    isRunning: false,
+    isRunning: timersState.isRunning,
     addTimer(timerData) {
       dispatch({ type: "ADD_TIMER", payload: timerData });
     },
