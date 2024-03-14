@@ -1,9 +1,13 @@
+import { type TTimer } from "../store/timersContext";
 import Container from "./UI/Container";
 
-const Timer = () => {
+type TTimerProps = TTimer;
+
+const Timer = ({ name, duration }: TTimerProps) => {
   return (
     <Container as="article">
-      <h2>TODO: TIMER NAME</h2>
+      <h2>{name}</h2>
+      <p>{duration}</p>
     </Container>
   );
 };
